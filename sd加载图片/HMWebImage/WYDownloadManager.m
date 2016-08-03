@@ -40,6 +40,10 @@
         self.imageCanch = [NSMutableDictionary dictionary];
         self.operationCanch = [NSMutableDictionary dictionary];
         self.queue = [[NSOperationQueue alloc]init];
+        
+        //注册通知,监听内存警告,添加一个监听者
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(memoryWarnimg) name:UIApplicationDidReceiveMemoryWarningNotification object:nil];
+        
     }
     
     return self;
@@ -117,6 +121,17 @@
     
     //将操作添加到缓存
     [self.operationCanch setObject:op forKey:urlString];
+    
+}
+
+-(void)memoryWarning
+{
+    //移除图片缓存
+    [self.imageCanch removeAllObjects];
+    //移除操作缓存
+    [self.operationCanch removeAllObjects];
+    //移除队列里的操作
+    [self.queue cancelAllOperations];
     
 }
 
