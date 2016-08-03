@@ -6,8 +6,12 @@
 //  Copyright © 2016年 王云. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WYDownloadManager : NSObject
+//全局访问点
++(instancetype)sharedManager;
+
+-(void)downloadImageWithUrlString:(NSString *)urlString  compeletion:(void(^)(UIImage *))compeletion;
 
 @end

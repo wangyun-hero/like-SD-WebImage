@@ -9,5 +9,16 @@
 #import <UIKit/UIKit.h>
 
 @interface WYAppCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIImageView *iconView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLable;
+@property (weak, nonatomic) IBOutlet UILabel *downLoadLable;
+
+
+
+
+
+
+
+
 
 @end

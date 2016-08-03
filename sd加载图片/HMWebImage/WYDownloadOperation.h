@@ -6,8 +6,12 @@
 //  Copyright © 2016年 王云. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface WYDownloadOperation : NSOperation
 
+
+@property(nonatomic,strong) UIImage *image;
+
++(instancetype)operationWithUrlString:(NSString *)urlString;
 @end
