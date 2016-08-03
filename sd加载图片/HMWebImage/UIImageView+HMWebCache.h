@@ -10,6 +10,8 @@
 
 @interface UIImageView (HMWebCache)
 
+@property(nonatomic,strong)NSString *string;
+
 -(void)wy_setImageWithURLstring:(NSString *)urlstring;
 
 @end

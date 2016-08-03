@@ -120,6 +120,22 @@
     
 }
 
+-(void)cancleOperationWithurlString:(NSString *)urlstring
+{
+    //取到urlstring对应的操作
+    NSOperation *op = [self.operationCanch objectForKey:urlstring];
+    //如果有就取消这个操作
+    if (op != nil ) {
+        [op cancel];
+    }
+    
+    [self.operationCanch removeObjectForKey:urlstring];
+    
+    
+    
+}
+
+
 -(void)memoryWarnimg
 {
     //移除图片缓存

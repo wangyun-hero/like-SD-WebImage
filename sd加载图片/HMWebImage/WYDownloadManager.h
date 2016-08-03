@@ -14,4 +14,7 @@
 
 -(void)downloadImageWithUrlString:(NSString *)urlString  compeletion:(void(^)(UIImage *))compeletion;
 
+//当cell复用的时候,判断这个cell之前有没有操作,如果有就取消
+-(void)cancleOperationWithurlString:(NSString *)urlstring;
+
 @end
