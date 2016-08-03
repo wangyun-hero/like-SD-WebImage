@@ -55,29 +55,29 @@
     //断言
     NSAssert(compeletion != nil, @"n=别闹了");
     
-    //先判断内存里面有没有
-    UIImage *image = self.imageCanch[urlString];
-    if (image != nil) {
-        NSLog(@"从内存取");
-         //如果有直接通过block进行回调
-        compeletion(image);
-        return;
-    }
-    
-    //再判断沙盒中有没有
-    NSString *canchString = [urlString appendCachePath];
-    image = [UIImage imageWithContentsOfFile:canchString];
-    if (image != nil) {
-        NSLog(@"从沙盒取");
-        //如果有直接通过block进行返回
-        compeletion(image);
-        //并且保存到内存里一份
-        [self.imageCanch setObject:image forKey:urlString];
-        
-        return;
-    }
-    
-    
+//    //先判断内存里面有没有
+//    UIImage *image = self.imageCanch[urlString];
+//    if (image != nil) {
+//        NSLog(@"从内存取");
+//         //如果有直接通过block进行回调
+//        compeletion(image);
+//        return;
+//    }
+//    
+//    //再判断沙盒中有没有
+//    NSString *canchString = [urlString appendCachePath];
+//    image = [UIImage imageWithContentsOfFile:canchString];
+//    if (image != nil) {
+//        NSLog(@"从沙盒取");
+//        //如果有直接通过block进行返回
+//        compeletion(image);
+//        //并且保存到内存里一份
+//        [self.imageCanch setObject:image forKey:urlString];
+//        
+//        return;
+//    }
+//    
+//    
     //判断是否有操作,如果操作有,什么都不做
     if (self.operationCanch[urlString] != nil) {
         NSLog(@"操作正在进行,请稍安勿躁");
@@ -98,8 +98,11 @@
         
         //回到主线程
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            //将图片存储到内存
-            [self.imageCanch setObject:image forKey:urlString];
+            if (image != nil ) {
+                //将图片存储到内存
+                [self.imageCanch setObject:image forKey:urlString];
+                
+            }
             
             //将操作移除
             [self.operationCanch removeObjectForKey:urlString];
@@ -109,13 +112,6 @@
         }];
 }];
     
-    
-    
-    
-    
-    
-    
-    
     //吧操作添加到队列
     [self.queue addOperation:op];
     
@@ -124,7 +120,7 @@
     
 }
 
--(void)memoryWarning
+-(void)memoryWarnimg
 {
     //移除图片缓存
     [self.imageCanch removeAllObjects];

@@ -4,8 +4,8 @@
 //
 //  Created by 王云 on 16/7/30.
 //  Copyright © 2016年 王云. All rights reserved.
-//
-
+//UIImageView+HMWebCache
+#import "UIImageView+HMWebCache.h"
 #import "AFNetworking.h"
 #import "NSString+path.h"
 #import "UIImageView+WebCache.h"
@@ -15,11 +15,11 @@
 #import "WYDownloadManager.h"
 @interface ViewController ()
 @property(nonatomic, strong) NSMutableArray *array;
-@property(nonatomic, strong) NSOperationQueue *queue;
-//  缓存的图片   key是图片的地址,value是图片
-@property(nonatomic, strong) NSMutableDictionary *imageCanch;
-//缓存操作
-@property(nonatomic, strong) NSMutableDictionary *imageQueue;
+//@property(nonatomic, strong) NSOperationQueue *queue;
+////  缓存的图片   key是图片的地址,value是图片
+//@property(nonatomic, strong) NSMutableDictionary *imageCanch;
+////缓存操作
+//@property(nonatomic, strong) NSMutableDictionary *imageQueue;
 @end
 
 @implementation ViewController
@@ -71,6 +71,7 @@
         }
 
         NSLog(@"%@", self.array);
+          NSLog(@"刷新数据");
 
         //刷新数据
         [self.tableView reloadData];
@@ -87,6 +88,8 @@
 //多少行
 - (NSInteger)tableView:(UITableView *)tableView
  numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog(@"数据源");
   return self.array.count;
 }
 
@@ -102,33 +105,35 @@
   cell.downLoadLable.text = model.download;
   cell.iconView.image = nil;
  
-
-    [[WYDownloadManager sharedManager] downloadImageWithUrlString:model.icon compeletion:^(UIImage *image) {
-        cell.iconView.image = image;
-    }];
+    //  [cell.iconView sd_setImageWithURL:<#(NSURL *)#>];
+    //    [[WYDownloadManager sharedManager] downloadImageWithUrlString:model.icon compeletion:^(UIImage *image) {
+    //        cell.iconView.image = image;
+    //    }];
+    //用我们自己的框架完成图片下载
+    [cell.iconView wy_setImageWithURLstring:model.icon];
     
     return cell;
 }
 
-- (void)didReceiveMemoryWarning {
-  [super didReceiveMemoryWarning];
-
-  //删除模型里的 图片
-  //    for (int i = 0; i < self.array.count; i++)
-  //    {
-  //        WYInfo *info = [[WYInfo alloc]init];
-  //        info.image = nil;
-  //    }
-
-  //删除字典里的图片
-  [self.imageCanch removeAllObjects];
-
-  //删除队列里的下载任务
-  [self.queue cancelAllOperations];
-
-  //删除字典里所有的操作
-  [self.imageQueue removeAllObjects];
-}
+//- (void)didReceiveMemoryWarning {
+//  [super didReceiveMemoryWarning];
+//
+//  //删除模型里的 图片
+//  //    for (int i = 0; i < self.array.count; i++)
+//  //    {
+//  //        WYInfo *info = [[WYInfo alloc]init];
+//  //        info.image = nil;
+//  //    }
+//
+//  //删除字典里的图片
+//  [self.imageCanch removeAllObjects];
+//
+//  //删除队列里的下载任务
+//  [self.queue cancelAllOperations];
+//
+//  //删除字典里所有的操作
+//  [self.imageQueue removeAllObjects];
+//}
 
 - (NSString *)canchPathWithUrlString:(NSString *)urlString {
   //获取canch目录
@@ -146,36 +151,36 @@
   return result;
 }
 
-//懒加载,用到的时候才会加载
+////懒加载,用到的时候才会加载
 - (NSMutableArray *)array {
   if (_array == nil) {
     _array = [NSMutableArray array];
   }
   return _array;
 }
-
-//队列
-- (NSOperationQueue *)queue {
-  if (_queue == nil) {
-    _queue = [[NSOperationQueue alloc] init];
-  }
-  return _queue;
-}
-
-//图片的缓存
-- (NSMutableDictionary *)imageCanch {
-  if (_imageCanch == nil) {
-    _imageCanch = [NSMutableDictionary dictionary];
-  }
-  return _imageCanch;
-}
-
-- (NSMutableDictionary *)imageQueue {
-  if (_imageQueue == nil) {
-    _imageQueue = [NSMutableDictionary dictionary];
-  }
-  return _imageQueue;
-}
+//
+////队列
+//- (NSOperationQueue *)queue {
+//  if (_queue == nil) {
+//    _queue = [[NSOperationQueue alloc] init];
+//  }
+//  return _queue;
+//}
+//
+////图片的缓存
+//- (NSMutableDictionary *)imageCanch {
+//  if (_imageCanch == nil) {
+//    _imageCanch = [NSMutableDictionary dictionary];
+//  }
+//  return _imageCanch;
+//}
+//
+//- (NSMutableDictionary *)imageQueue {
+//  if (_imageQueue == nil) {
+//    _imageQueue = [NSMutableDictionary dictionary];
+//  }
+//  return _imageQueue;
+//}
 
 @end
 

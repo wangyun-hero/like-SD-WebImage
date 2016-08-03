@@ -37,6 +37,7 @@
 		CB3F5AC01D4BBC6500839948 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3F5AAA1D4BBC6500839948 /* UIView+WebCacheOperation.m */; };
 		CB3F5AC31D4BBC9C00839948 /* WYInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3F5AC21D4BBC9C00839948 /* WYInfo.m */; };
 		CB3F5AC61D4C720800839948 /* WYAppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3F5AC51D4C720800839948 /* WYAppCell.m */; };
+		CBC9861E1D51D4C000BF5128 /* UIImageView+HMWebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBC9861D1D51D4C000BF5128 /* UIImageView+HMWebCache.m */; };
 		CBD7A1C61D4DF3CB00992D62 /* NSString+path.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A1C51D4DF3CB00992D62 /* NSString+path.m */; };
 		CBD7A1CA1D4E32D400992D62 /* WYDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A1C91D4E32D400992D62 /* WYDownloadManager.m */; };
 		CBD7A1D01D4E545C00992D62 /* WYDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = CBD7A1CF1D4E545C00992D62 /* WYDownloadOperation.m */; };
@@ -103,6 +104,8 @@
 		CB3F5AC21D4BBC9C00839948 /* WYInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYInfo.m; sourceTree = "<group>"; };
 		CB3F5AC41D4C720800839948 /* WYAppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYAppCell.h; sourceTree = "<group>"; };
 		CB3F5AC51D4C720800839948 /* WYAppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYAppCell.m; sourceTree = "<group>"; };
+		CBC9861C1D51D4C000BF5128 /* UIImageView+HMWebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HMWebCache.h"; sourceTree = "<group>"; };
+		CBC9861D1D51D4C000BF5128 /* UIImageView+HMWebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HMWebCache.m"; sourceTree = "<group>"; };
 		CBD7A1C41D4DF3CB00992D62 /* NSString+path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+path.h"; sourceTree = "<group>"; };
 		CBD7A1C51D4DF3CB00992D62 /* NSString+path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+path.m"; sourceTree = "<group>"; };
 		CBD7A1C81D4E32D400992D62 /* WYDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYDownloadManager.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				CBD7A1C91D4E32D400992D62 /* WYDownloadManager.m */,
 				CBD7A1CE1D4E545C00992D62 /* WYDownloadOperation.h */,
 				CBD7A1CF1D4E545C00992D62 /* WYDownloadOperation.m */,
+				CBC9861C1D51D4C000BF5128 /* UIImageView+HMWebCache.h */,
+				CBC9861D1D51D4C000BF5128 /* UIImageView+HMWebCache.m */,
 			);
 			path = HMWebImage;
 			sourceTree = "<group>";
@@ -353,6 +358,7 @@
 				CBD7A1CA1D4E32D400992D62 /* WYDownloadManager.m in Sources */,
 				CB3F5AB31D4BBC6500839948 /* SDImageCache.m in Sources */,
 				CB3F5AAE1D4BBC6500839948 /* AFURLRequestSerialization.m in Sources */,
+				CBC9861E1D51D4C000BF5128 /* UIImageView+HMWebCache.m in Sources */,
 				CB3F5AAF1D4BBC6500839948 /* AFURLResponseSerialization.m in Sources */,
 				CB3F5AAB1D4BBC6500839948 /* AFHTTPSessionManager.m in Sources */,
 				CB3F5ABB1D4BBC6500839948 /* UIImage+GIF.m in Sources */,

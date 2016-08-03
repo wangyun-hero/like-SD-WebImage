@@ -25,6 +25,7 @@
 //将操作添加到队列就会调用
 -(void)main
 {
+    [NSThread sleepForTimeInterval:arc4random_uniform(5)];
     NSURL *url = [NSURL URLWithString:self.urlString];
     
     NSData *data = [NSData dataWithContentsOfURL:url];
